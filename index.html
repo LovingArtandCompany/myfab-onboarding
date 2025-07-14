@@ -1,0 +1,570 @@
+Website Build Onboarding
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyFabEvents Website Build - Project Onboarding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-section {
+            padding: 30px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f8f9fa;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .required {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            background-color: #fafafa;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: white;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin: 0;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .divider {
+            height: 1px;
+            background: #e9ecef;
+            margin: 30px 0;
+        }
+
+        .note {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .timeline-box {
+            background: #e8f4fd;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .file-upload input[type=file] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-upload-btn {
+            display: block;
+            padding: 12px 16px;
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload:hover .file-upload-btn {
+            background: #e9ecef;
+            border-color: #adb5bd;
+        }
+
+        .priority-indicator {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .high-priority {
+            background: #ffe6e6;
+            color: #c92a2a;
+        }
+
+        .medium-priority {
+            background: #fff3cd;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Website Build Onboarding</h1>
+            <p>MyFabEvents Squarespace Site - Project Kickoff</p>
+        </div>
+
+        <form class="form-section" id="onboardingForm" action="https://formspree.io/f/xyzpgvvw" method="POST">
+            
+            <div class="timeline-box">
+                <strong>🚀 Timeline:</strong> Website launch in 1 week (7 days)<br>
+                <strong>📅 Today:</strong> Information gathering<br>
+                <strong>🎯 Goal:</strong> Professional booking site that drives inquiries
+            </div>
+
+            <!-- Project Details -->
+            <div class="section-title">Project Overview</div>
+            
+            <div class="form-group">
+                <label for="primaryContact">Primary Contact for This Project <span class="required">*</span></label>
+                <input type="text" id="primaryContact" name="primaryContact" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="contactEmail">Contact Email <span class="required">*</span></label>
+                    <input type="email" id="contactEmail" name="contactEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactPhone">Contact Phone <span class="required">*</span></label>
+                    <input type="tel" id="contactPhone" name="contactPhone" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="currentSite">Current Website URL</label>
+                <input type="url" id="currentSite" name="currentSite" value="https://myfabevents.com" readonly>
+                <small style="color: #666;">We'll pull content from here as the foundation</small>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Brand & Messaging -->
+            <div class="section-title">Brand & Messaging <span class="priority-indicator high-priority">HIGH PRIORITY</span></div>
+
+            <div class="form-group">
+                <label for="brandDescription">How would you describe MyFabEvents in one sentence? <span class="required">*</span></label>
+                <textarea id="brandDescription" name="brandDescription" placeholder="e.g., We're a nationwide event entertainment company that creates unforgettable experiences..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="targetAudience">Who is your ideal client? <span class="required">*</span></label>
+                <textarea id="targetAudience" name="targetAudience" placeholder="e.g., Corporate event planners, parents planning birthday parties, marketing teams doing promotional events..." required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="differentiation">What makes MyFabEvents different from competitors?</label>
+                <textarea id="differentiation" name="differentiation" placeholder="e.g., 20+ years experience, nationwide coverage, licensed & insured, bilingual staff..."></textarea>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Website Goals -->
+            <div class="section-title">Website Goals <span class="priority-indicator high-priority">HIGH PRIORITY</span></div>
+
+            <div class="form-group">
+                <label>What should visitors do on the new site? (Check all that apply) <span class="required">*</span></label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goal-inquire" name="goals" value="inquire" checked>
+                        <label for="goal-inquire">Submit event inquiry</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goal-call" name="goals" value="call" checked>
+                        <label for="goal-call">Call for consultation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goal-pricing" name="goals" value="pricing">
+                        <label for="goal-pricing">Request pricing information</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goal-portfolio" name="goals" value="portfolio">
+                        <label for="goal-portfolio">View portfolio/past events</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="goal-testimonials" name="goals" value="testimonials">
+                        <label for="goal-testimonials">Read client testimonials</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="conversion">What's the #1 action you want visitors to take? <span class="required">*</span></label>
+                <select id="conversion" name="conversion" required>
+                    <option value="">Select primary goal</option>
+                    <option value="inquiry-form">Fill out event inquiry form</option>
+                    <option value="phone-call">Call for consultation</option>
+                    <option value="email-contact">Send email inquiry</option>
+                    <option value="price-request">Request pricing</option>
+                </select>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Content & Features -->
+            <div class="section-title">Content & Features</div>
+
+            <div class="form-group">
+                <label>Which pages are essential for the new site? <span class="required">*</span></label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="page-home" name="pages" value="home" checked disabled>
+                        <label for="page-home">Home</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="page-about" name="pages" value="about" checked>
+                        <label for="page-about">About Us</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="page-services" name="pages" value="services" checked>
+                        <label for="page-services">Services</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="page-portfolio" name="pages" value="portfolio">
+                        <label for="page-portfolio">Portfolio/Gallery</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="page-contact" name="pages" value="contact" checked disabled>
+                        <label for="page-contact">Contact</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="page-pricing" name="pages" value="pricing">
+                        <label for="page-pricing">Pricing</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="page-testimonials" name="pages" value="testimonials">
+                        <label for="page-testimonials">Testimonials</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mustHaveFeatures">Must-have features for the site:</label>
+                <div class="checkbox-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feature-inquiry" name="features" value="inquiry-form" checked>
+                        <label for="feature-inquiry">Event inquiry form</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feature-mobile" name="features" value="mobile-friendly" checked>
+                        <label for="feature-mobile">Mobile-friendly design</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feature-gallery" name="features" value="photo-gallery">
+                        <label for="feature-gallery">Photo gallery</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feature-testimonials" name="features" value="testimonials">
+                        <label for="feature-testimonials">Client testimonials</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feature-social" name="features" value="social-links">
+                        <label for="feature-social">Social media links</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="feature-seo" name="features" value="seo" checked>
+                        <label for="feature-seo">SEO optimization</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Design Preferences -->
+            <div class="section-title">Design & Style <span class="priority-indicator medium-priority">MEDIUM PRIORITY</span></div>
+
+            <div class="form-group">
+                <label for="designStyle">Design style preference:</label>
+                <select id="designStyle" name="designStyle">
+                    <option value="">No strong preference</option>
+                    <option value="professional-corporate">Professional/Corporate</option>
+                    <option value="fun-colorful">Fun & Colorful</option>
+                    <option value="elegant-sophisticated">Elegant & Sophisticated</option>
+                    <option value="modern-minimal">Modern & Minimal</option>
+                    <option value="warm-friendly">Warm & Friendly</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="colorPreferences">Any specific color preferences or brand colors?</label>
+                <input type="text" id="colorPreferences" name="colorPreferences" placeholder="e.g., Blues and whites, bright and cheerful, no pink...">
+            </div>
+
+            <div class="form-group">
+                <label for="inspirationSites">Websites you like (for design inspiration):</label>
+                <textarea id="inspirationSites" name="inspirationSites" placeholder="Share URLs of websites whose design you admire..."></textarea>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Assets & Content -->
+            <div class="section-title">Assets & Content <span class="priority-indicator high-priority">HIGH PRIORITY</span></div>
+
+            <div class="form-group">
+                <label for="logoFiles">Do you have a logo file? (JPG, PNG, or vector)</label>
+                <div class="file-upload">
+                    <input type="file" id="logoFiles" name="logoFiles" accept=".jpg,.jpeg,.png,.svg,.ai,.eps" multiple>
+                    <div class="file-upload-btn">
+                        📎 Click to upload logo files or drag & drop
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventPhotos">High-quality event photos available?</label>
+                <select id="eventPhotos" name="eventPhotos">
+                    <option value="">Select option</option>
+                    <option value="yes-many">Yes, we have many photos</option>
+                    <option value="yes-some">Yes, we have some photos</option>
+                    <option value="few">Only a few photos</option>
+                    <option value="none">Need to take new photos</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="testimonials">Do you have client testimonials to include?</label>
+                <textarea id="testimonials" name="testimonials" placeholder="Share any testimonials, reviews, or client feedback you'd like featured..."></textarea>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Technical Details -->
+            <div class="section-title">Technical & Access</div>
+
+            <div class="form-group">
+                <label for="squarespaceAccount">Squarespace account status:</label>
+                <select id="squarespaceAccount" name="squarespaceAccount">
+                    <option value="">Select status</option>
+                    <option value="have-account">We have an existing account</option>
+                    <option value="need-setup">Need to set up new account</option>
+                    <option value="not-sure">Not sure</option>
+                </select>
+            </div>
+
+            <div class="note">
+                <strong>📋 Pre-Launch Checklist - What I Need to Get Started:</strong><br><br>
+                
+                <strong>Before Development Begins:</strong><br>
+                ✅ This onboarding form completed<br>
+                ✅ Squarespace Business Plan subscription ($26/month) - <em>Client pays directly</em><br>
+                ✅ Domain ownership confirmed (myfabevents.com or new domain)<br>
+                ✅ Logo files provided (high-resolution PNG/SVG preferred)<br>
+                ✅ Event photos selected (minimum 10-15 high-quality images)<br><br>
+                
+                <strong>Account Access Needed:</strong><br>
+                ✅ Squarespace account admin access (temporary for build)<br>
+                ✅ Domain registrar access (if updating DNS settings)<br>
+                ✅ Google Analytics account (if setting up tracking)<br><br>
+                
+                <strong>Content Ready:</strong><br>
+                ✅ Final service descriptions and pricing structure<br>
+                ✅ Client testimonials and reviews<br>
+                ✅ Contact information and business hours<br><br>
+                
+                <em>💡 <strong>Recommended:</strong> Set up your Squarespace Business Plan before our kickoff call so we can start building immediately!</em>
+            </div>
+
+            <div class="form-group">
+                <label for="domainName">Preferred domain name:</label>
+                <input type="text" id="domainName" name="domainName" placeholder="e.g., myfabevents.com, myfabevents.net">
+                <small style="color: #666;">Current domain or new domain preference</small>
+            </div>
+
+            <div class="form-group">
+                <label for="analytics">Do you want Google Analytics tracking?</label>
+                <select id="analytics" name="analytics">
+                    <option value="yes">Yes, set up analytics</option>
+                    <option value="no">No analytics needed</option>
+                    <option value="existing">We have existing analytics</option>
+                </select>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Launch & Maintenance -->
+            <div class="section-title">Launch & Next Steps</div>
+
+            <div class="form-group">
+                <label for="launchDate">Target launch date:</label>
+                <input type="date" id="launchDate" name="launchDate">
+            </div>
+
+            <div class="form-group">
+                <label for="postLaunch">Post-launch support needed?</label>
+                <select id="postLaunch" name="postLaunch">
+                    <option value="">Select option</option>
+                    <option value="training">Training on how to update content</option>
+                    <option value="ongoing">Ongoing maintenance support</option>
+                    <option value="self-managed">We'll manage it ourselves</option>
+                    <option value="discuss">Let's discuss options</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalNotes">Anything else we should know?</label>
+                <textarea id="additionalNotes" name="additionalNotes" placeholder="Special requirements, concerns, or other important details..."></textarea>
+            </div>
+
+            <div class="note">
+                <strong>Next Steps:</strong><br>
+                1. We'll review your responses within 24 hours<br>
+                2. Set up Squarespace account (if needed)<br>
+                3. Begin site structure and content migration<br>
+                4. Share preview link for feedback<br>
+                5. Launch within 7 days!
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Project Details</button>
+        </form>
+    </div>
+
+    <script>
+        // Form submission
+        document.getElementById('onboardingForm').addEventListener('submit', function(e) {
+            // Let Formspree handle the submission
+            // Show loading state
+            const submitBtn = document.querySelector('.submit-btn');
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+        });
+
+        // File upload feedback
+        document.getElementById('logoFiles').addEventListener('change', function() {
+            const btn = this.parentNode.querySelector('.file-upload-btn');
+            const fileCount = this.files.length;
+            if (fileCount > 0) {
+                btn.innerHTML = `📎 ${fileCount} file(s) selected`;
+                btn.style.background = '#d4edda';
+                btn.style.borderColor = '#c3e6cb';
+            }
+        });
+    </script>
+</body>
+</html>
